@@ -5,8 +5,8 @@
  * colors (only after it's been drawn, of course).
  *
  * This class was written as an early example for teaching Java with BlueJ.
- * 
- * @author  Michael Kšlling and David J. Barnes
+ *
+ * @author  Michael Kölling and David J. Barnes
  * @version 2011.07.31
  */
 public class Picture
@@ -15,6 +15,9 @@ public class Picture
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Square blank;
+    private Square background;
+    private Person person;
 
     /**
      * Constructor for objects of class Picture
@@ -29,12 +32,15 @@ public class Picture
      */
     public void draw()
     {
+
+
+
         wall = new Square();
         wall.moveHorizontal(-140);
         wall.moveVertical(20);
         wall.changeSize(120);
         wall.makeVisible();
-        
+
         window = new Square();
         window.changeColor("black");
         window.moveHorizontal(-120);
@@ -42,7 +48,7 @@ public class Picture
         window.changeSize(40);
         window.makeVisible();
 
-        roof = new Triangle();  
+        roof = new Triangle();
         roof.changeSize(60, 180);
         roof.moveHorizontal(20);
         roof.moveVertical(-60);
@@ -56,6 +62,52 @@ public class Picture
         sun.makeVisible();
     }
 
+    public void sunSet()
+    {
+
+        person = new Person();
+        person.changeColor("Black");
+        person.moveHorizontal(-140);
+        person.moveVertical(5);
+        person.makeVisible();
+
+        sun = new Circle();
+        sun.changeColor("yellow");
+        sun.moveHorizontal(60);
+        sun.moveVertical(30);
+        sun.changeSize(60);
+        sun.makeVisible();
+
+        wall = new Square();
+        wall.moveHorizontal(-140);
+        wall.moveVertical(20);
+        wall.changeSize(120);
+        wall.makeVisible();
+
+        window = new Square();
+        window.changeColor("black");
+        window.moveHorizontal(-120);
+        window.moveVertical(40);
+        window.changeSize(40);
+        window.makeVisible();
+
+        roof = new Triangle();
+        roof.changeSize(60, 180);
+        roof.moveHorizontal(20);
+        roof.moveVertical(-60);
+        roof.makeVisible();
+
+        blank = new Square();
+        blank.changeColor("green");
+        blank.moveHorizontal(-400);
+        blank.moveVertical(115);
+        blank.changeSize(800);
+        blank.makeVisible();
+
+
+        sun.slowMoveVertical(350);
+    }
+
     /**
      * Change this picture to black/white display
      */
@@ -67,6 +119,7 @@ public class Picture
             window.changeColor("white");
             roof.changeColor("black");
             sun.changeColor("black");
+            blank.changeColor("black");
         }
     }
 
